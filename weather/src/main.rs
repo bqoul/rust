@@ -11,7 +11,7 @@ async fn main() {
         let city = input("\nenter city name: ");
 
         let link = format!("http://api.weatherapi.com/v1/current.json?key={api_key}&q={city}",
-                           api_key = "NOIDONTTHINKSO", 
+                           api_key = "NOIDONTTHINKSO", //if you want to use this program you'l have to put a proper api-key from weatherapi.com in here
                            city = city.trim());
 
         match weather(link).await {

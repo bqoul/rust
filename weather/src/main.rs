@@ -26,9 +26,9 @@ async fn main() {
             Err(_) => {
                 match weather_failed(&link).await {
                     Ok(failed) => {
-                        println!("{}", failed.error.message.black().on_red())
+                        println!("{}\n", failed.error.message.black().on_red())
                     },
-                    Err(_) => println!("{}", "No internet connection.".black().on_red()),
+                    Err(_) => println!("{}\n", "No internet connection.".black().on_red()),
                 }
             }
         }

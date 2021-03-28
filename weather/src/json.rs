@@ -23,3 +23,13 @@ pub struct Current {
 pub struct Condition {
     pub text: String,
 }
+
+#[derive(Deserialize)]
+pub struct Failed {
+    pub error: Error,
+}
+
+#[derive(Deserialize)]
+pub struct Error {
+    pub message: String,
+}

@@ -4,51 +4,22 @@ use std::io::prelude::*;
 
 #[tokio::main]
 async fn main() {
-    let mut bot_username = String::new();
-    let mut oauth_token = String::new();
-
-    match File::open("bot_username.txt") {
-        Ok(mut file) => {
-            file.read_to_string(&mut bot_username).unwrap();
-        }
-        Err(_) => {
-            File::create("bot_username.txt").unwrap();
-            println!("please fill the \"bot_username.txt\" file\n", );
-        }
-    }
-
-    match File::open("oauth_token.txt") {
-        Ok(mut file) => {
-            file.read_to_string(&mut oauth_token).unwrap();
-        }
-        Err(_) => {
-            File::create("oauth_token.txt").unwrap();
-            println!("please fill the \"oauth_token.txt\" file\n", );
-        }
-    }
+    let bot_username = get_file("bot_username.txt");
+    let oauth_token = get_file("oauth_token.txt");
 
     let config = ClientConfig::new_simple(StaticLoginCredentials::new(bot_username, Some(oauth_token)));
     let (mut incoming_messages, client) = TwitchIRCClient::<TCPTransport, StaticLoginCredentials>::new(config);
+    
+    let channels = get_file("channels.txt"); //idk why, but the compiler throws an error if i write "channels" in one line
+    let channels: Vec<&str> = channels.as_str().split_whitespace().collect();
 
-    match File::open("channels.txt") {
-        Ok(mut file) => {
-            let mut channels = String::new();
-            file.read_to_string(&mut channels).unwrap();
-            let channels: Vec<&str> = channels.split_whitespace().collect();
-
-            if channels.len() > 0 {
-                for i in 0..channels.len() {
-                    client.join(channels[i].to_owned());
-                    println!("succesfully connected to twitch.tv/{}", channels[i]);
-                }
-            } else {
-                println!("please fill the \"channels.txt\" file\n", );
-            }
-        },
-        Err(_) => {
-            File::create("channels.txt").unwrap();
-            println!("please fill the \"channels.txt\" file\n", );
+    if channels.len() > 0 {
+        for i in 0..channels.len() {
+            client.join(channels[i].to_owned());
+            println!("succesfully connected to twitch.tv/{}", channels[i]);
         }
+    } else {
+        println!("please fill the \"channels.txt\" file\n", );
     }
 
     let join_handle = tokio::spawn(async move {
@@ -74,4 +45,19 @@ async fn main() {
     });
 
     join_handle.await.unwrap();
+}
+
+fn get_file(file_name: &str) -> String {
+    let mut data = String::new();
+
+    match File::open(format!("{}", file_name)) {
+        Ok(mut file) => {
+            file.read_to_string(&mut data).unwrap();
+        }
+        Err(_) => {
+            File::create(format!("{}", file_name)).unwrap();
+            println!("please fill the \"{}\" file\n", file_name);
+        }
+    }
+    data
 }

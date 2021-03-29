@@ -27,9 +27,6 @@ async fn main() {
         }
     }
 
-    //let bot_username = "5gxd".to_owned();
-    //let oauth_token = "6flaivmsw6h2ytjyo08gzcmvu494ft".to_owned();
-
     let config = ClientConfig::new_simple(StaticLoginCredentials::new(bot_username, Some(oauth_token)));
     let (mut incoming_messages, client) = TwitchIRCClient::<TCPTransport, StaticLoginCredentials>::new(config);
 

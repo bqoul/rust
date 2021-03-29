@@ -19,7 +19,7 @@ async fn main() {
                             "!help" => {
                                 //client.say(msg.channel_login, "help yourself, loser".to_owned()).await.unwrap();
                             },
-                            r#"PogChamp a Raffle has begun for 1000 doinks pokeU it will end in 20 Seconds. Enter by typing "!join" pokeFAT "# => {
+                            r#"PogChamp a Raffle has begun for 1000 doinks pokeU it will end in 20 Seconds. Enter by typing "!join" pokeFAT"# => {
                                 client.say(msg.channel_login, "!join".to_owned()).await.unwrap();
                             }
                             _ => {},

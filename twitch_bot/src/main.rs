@@ -16,9 +16,6 @@ async fn main() {
                     ServerMessage::Privmsg(msg) => {
                         println!("(#{}) {}: {}", msg.channel_login, msg.sender.name, msg.message_text);
                         match msg.message_text.as_str() {
-                            "!help" => {
-                                //client.say(msg.channel_login, "help yourself, loser".to_owned()).await.unwrap();
-                            },
                             r#"PogChamp a Raffle has begun for 1000 doinks pokeU it will end in 20 Seconds. Enter by typing "!join" pokeFAT"# => {
                                 client.say(msg.channel_login, "!join".to_owned()).await.unwrap();
                             }

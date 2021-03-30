@@ -1,4 +1,16 @@
 ### todo
-- [x] Finish my changes
+- [ ] Make proper global timeout protection
+- [ ] Push my commits to GitHub
+- [ ] Open a pull request
+- [ ] Finish my changes
+- [ ] Push my commits to GitHub
+- [ ] Open a pull request
+- [ ] Finish my changes
+- [ ] Push my commits to GitHub
+- [ ] Open a pull request
+- [ ] Finish my changes
+- [ ] Push my commits to GitHub
+- [ ] Open a pull request
+- [ ] Finish my changes
 - [ ] Push my commits to GitHub
 - [ ] Open a pull request

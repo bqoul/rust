@@ -9,7 +9,7 @@ async fn main() {
     let config = ClientConfig::new_simple(StaticLoginCredentials::new(bot_username, Some(oauth_token)));
     let (mut incoming_messages, client) = TwitchIRCClient::<TCPTransport, StaticLoginCredentials>::new(config);
     
-    let channels = get_file("channels.txt"); //idk why, but the compiler throws an error if i write "channels" in one line
+    let channels = get_file("channels.txt");
     let channels: Vec<&str> = channels.as_str().split_whitespace().collect();
 
     for i in 0..channels.len() {

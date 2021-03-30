@@ -61,6 +61,6 @@ fn get_file(file_name: &str) -> String {
     data
 }
 
-fn gtp() {
+fn gtp() { //global timeout protection, twitch only allows users to send 20 messages per 30 seconds
     thread::sleep(time::Duration::from_secs_f32(1.5));
 }

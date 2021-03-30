@@ -6,8 +6,6 @@ async fn main() {
     let bot_username = get_file("bot_username.txt");
     let oauth_token = get_file("oauth_token.txt");
 
-    //oauth_token = "6flaivmsw6h2ytjyo08gzcmvu494ft"
-
     let config = ClientConfig::new_simple(StaticLoginCredentials::new(bot_username, Some(oauth_token)));
     let (mut incoming_messages, client) = TwitchIRCClient::<TCPTransport, StaticLoginCredentials>::new(config);
     

@@ -1,16 +1,4 @@
 ### todo
 - [ ] Make proper global timeout protection
-- [ ] Push my commits to GitHub
-- [ ] Open a pull request
-- [ ] Finish my changes
-- [ ] Push my commits to GitHub
-- [ ] Open a pull request
-- [ ] Finish my changes
-- [ ] Push my commits to GitHub
-- [ ] Open a pull request
-- [ ] Finish my changes
-- [ ] Push my commits to GitHub
-- [ ] Open a pull request
-- [ ] Finish my changes
-- [ ] Push my commits to GitHub
-- [ ] Open a pull request
+- [ ] Make whitelist check
+- [ ] Recreate all commands from my old bot
